@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex | Busca de Pokémon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="pagina">
+      <header class="topo">
+        <h1>Pokédex</h1>
+        <p class="subtitulo">
+          Digite o nome de um Pokémon em inglês, como pikachu ou charizard.
+        </p>
+      </header>
+
+      <form id="formBusca" class="busca" novalidate>
+        <label for="campoNome">Nome do Pokémon</label>
+        <div class="busca-linha">
+          <input
+            type="text"
+            id="campoNome"
+            placeholder="Ex.: bulbasaur"
+            autocomplete="off"
+          />
+          <button type="submit" id="botaoBuscar" class="botao">Buscar</button>
+          <button type="button" id="botaoAleatorio" class="botao secundario">
+            Pokémon aleatório
+          </button>
+        </div>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <section id="resultado" aria-label="Resultado da busca"></section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
