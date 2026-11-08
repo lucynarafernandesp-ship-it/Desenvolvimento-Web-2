@@ -1,0 +1,242 @@
+:root {
+  --fundo: #1b2236;
+  --superficie: #252e48;
+  --borda: #36415f;
+  --texto: #eef1f8;
+  --texto-suave: #a9b3cc;
+  --destaque: #c93a2a;
+  --destaque-hover: #b02f21;
+  --erro: #ff8a7a;
+  --cor-tipo: #686853;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+.pagina {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 16px 56px;
+}
+
+.topo h1 {
+  margin: 0 0 4px;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  color: var(--texto-suave);
+}
+
+/* ---------- Busca ---------- */
+.busca label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.busca-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+input[type="text"] {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+}
+
+input[type="text"]::placeholder {
+  color: var(--texto-suave);
+}
+
+.botao {
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--destaque);
+  border: 1px solid var(--destaque);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botao:hover:not(:disabled) {
+  background: var(--destaque-hover);
+}
+
+.botao.secundario {
+  color: var(--texto);
+  background: transparent;
+  border-color: var(--borda);
+}
+
+.botao.secundario:hover:not(:disabled) {
+  background: var(--superficie);
+}
+
+.botao:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+input:focus-visible,
+.botao:focus-visible {
+  outline: 3px solid #8fb4ff;
+  outline-offset: 2px;
+}
+
+/* ---------- Mensagens de estado ---------- */
+.status {
+  margin: 20px 0;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status p {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--superficie);
+  border-left: 4px solid var(--borda);
+}
+
+.status.erro p {
+  color: var(--erro);
+  border-left-color: var(--erro);
+}
+
+.status .botao {
+  margin-top: 10px;
+}
+
+/* ---------- Cartão do Pokémon ---------- */
+#resultado {
+  margin-top: 20px;
+}
+
+.cartao {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+}
+
+.painel-imagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 20px;
+  background: color-mix(in srgb, var(--cor-tipo) 45%, var(--superficie));
+}
+
+.painel-imagem img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.painel-imagem img.sprite {
+  image-rendering: pixelated;
+}
+
+.sem-imagem {
+  color: var(--texto-suave);
+}
+
+.informacoes {
+  padding: 20px;
+}
+
+.informacoes h2 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.numero {
+  margin: 0 0 12px;
+  color: var(--texto-suave);
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.tipo {
+  padding: 3px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--cor-tipo);
+  border-radius: 999px;
+}
+
+.dados {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 20px;
+  margin: 0;
+}
+
+.dados dt {
+  color: var(--texto-suave);
+}
+
+.dados dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (min-width: 560px) {
+  .cartao {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+/* ---------- Cor de cada tipo ---------- */
+.tipo-normal   { --cor-tipo: #686853; }
+.tipo-fire     { --cor-tipo: #c24410; }
+.tipo-water    { --cor-tipo: #2f6fd1; }
+.tipo-electric { --cor-tipo: #8f6f00; }
+.tipo-grass    { --cor-tipo: #2f7a2d; }
+.tipo-ice      { --cor-tipo: #2a7f8f; }
+.tipo-fighting { --cor-tipo: #a8321f; }
+.tipo-poison   { --cor-tipo: #8a3a9c; }
+.tipo-ground   { --cor-tipo: #86671a; }
+.tipo-flying   { --cor-tipo: #5468b3; }
+.tipo-psychic  { --cor-tipo: #bb356a; }
+.tipo-bug      { --cor-tipo: #5f7300; }
+.tipo-rock     { --cor-tipo: #766620; }
+.tipo-ghost    { --cor-tipo: #5a4580; }
+.tipo-dragon   { --cor-tipo: #4b3fc9; }
+.tipo-dark     { --cor-tipo: #5a463a; }
+.tipo-steel    { --cor-tipo: #6d7f93; }
+.tipo-fairy    { --cor-tipo: #ad4488; }
